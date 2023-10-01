@@ -9,14 +9,18 @@ let level = 0;
 let h2 =document.querySelector('h2');
 
 //start game----------------
-
-document.addEventListener("keypress",function(){        
+let startbtn = document.querySelector(".start"); 
+startbtn.addEventListener("click",function(){        
     if(started == false){
         console.log("game is started");
-        started = true;        
-
+        started = true;   
+        startbtn.innerText = "End";    
         levelUp();
 
+
+    }else{
+        startbtn.innerText = "Start";
+        reset()
     }
 });
 
@@ -61,12 +65,12 @@ function checkAns(idx){
         }
     }
     else{
-        h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br>Press any key to start.`;
+        h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br>Press Start button to start.`;
         document.querySelector("body").style.backgroundColor  = "red";
         setTimeout(() => {
             document.querySelector("body").style.backgroundColor  = "black";
         }, 200);
-        let highScore = document.querySelector('h1');
+        let highScore = document.querySelector('h1.highscore');
         
         if(currlevel >= level){
             highScore.innerText = `Your High Score is ${currlevel}.`;
@@ -103,5 +107,6 @@ function reset(){
     gameSeq = [];
     userSeq = [];
     level = 0;
+    startbtn.innerText = "Start"
     // highScore.innerText ="";  
 }
