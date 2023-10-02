@@ -97,3 +97,6 @@ body{
 .Gname{
     text-decoration: underline;
 }
+audio{
+    display: none;
+}

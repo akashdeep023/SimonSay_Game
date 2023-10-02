@@ -8,6 +8,21 @@ let level = 0;
 
 let h2 =document.querySelector('h2');
 
+//sound effect--------------------------
+let endSound = document.querySelector(".endSound");
+let gameOverSound = function () {
+    endSound.play();
+}
+let btnsSound = document.querySelector(".btnSound")
+let btnSound = function () {
+    btnsSound.play();
+}
+let sbtnSound = document.querySelector(".sbtnSound")
+let startbtnSound = function () {
+    sbtnSound.play();
+}
+
+
 //start game----------------
 let startbtn = document.querySelector(".start"); 
 startbtn.addEventListener("click",function(){        
@@ -17,16 +32,16 @@ startbtn.addEventListener("click",function(){
         startbtn.innerText = "End"; 
         startbtn.style.backgroundColor = "red"   
         levelUp();
-        
-        
-        
+        startbtnSound();
+               
     }else{
         startbtn.style.backgroundColor = "blue"   
         startbtn.innerText = "Start";
-
+        startbtnSound();
         reset()
     }
 });
+
 
 //flaxh buttons & level up ----------------------
 function gameFlash(btn){
@@ -41,6 +56,7 @@ function userFlash(btn){
     setTimeout(() => {
         btn.classList.remove("userFlash");
     }, 200);
+    btnSound();
 }
 
 function levelUp(){
@@ -71,11 +87,27 @@ function checkAns(idx){
     else{
         h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br>Press Start Button To Start`;
         document.querySelector("body").style.backgroundColor  = "red";
-        startbtn.style.backgroundColor = "blue"   
+        startbtn.style.backgroundColor = "blue";   
+
+        gameOverSound();
 
         setTimeout(() => {
             document.querySelector("body").style.backgroundColor  = "black";
+        }, 100);
+        // document.querySelector("body").style.backgroundColor  = "red";
+        setTimeout(() => {
+            document.querySelector("body").style.backgroundColor  = "red";
         }, 200);
+        setTimeout(() => {
+            document.querySelector("body").style.backgroundColor  = "black";
+        }, 300);
+        setTimeout(() => {
+            document.querySelector("body").style.backgroundColor  = "red";
+        }, 400);
+        setTimeout(() => {
+            document.querySelector("body").style.backgroundColor  = "black";
+        }, 500);
+
         let highScore = document.querySelector('h1.highscore');
         
         if(currlevel >= level){
