@@ -14,12 +14,16 @@ startbtn.addEventListener("click",function(){
     if(started == false){
         console.log("game is started");
         started = true;   
-        startbtn.innerText = "End";    
+        startbtn.innerText = "End"; 
+        startbtn.style.backgroundColor = "red"   
         levelUp();
-
-
+        
+        
+        
     }else{
+        startbtn.style.backgroundColor = "blue"   
         startbtn.innerText = "Start";
+
         reset()
     }
 });
@@ -43,7 +47,7 @@ function levelUp(){
     userSeq = [];
     level++;
     h2.innerText = `Level ${level}`;
-    let randIdx = Math.floor(Math.random() * 3);
+    let randIdx = Math.floor(Math.random() * 4);
 
     let randColor = btns[randIdx];
     let randBtn = document.querySelector(`.${randColor}`);
@@ -67,6 +71,8 @@ function checkAns(idx){
     else{
         h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br>Press Start Button To Start`;
         document.querySelector("body").style.backgroundColor  = "red";
+        startbtn.style.backgroundColor = "blue"   
+
         setTimeout(() => {
             document.querySelector("body").style.backgroundColor  = "black";
         }, 200);
@@ -108,5 +114,6 @@ function reset(){
     userSeq = [];
     level = 0;
     startbtn.innerText = "Start"
+
     // highScore.innerText ="";  
 }
