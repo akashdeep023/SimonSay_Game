@@ -116,7 +116,6 @@ function checkAns(idx){
             highScore.innerText = `Your High Score is ${level}.`;
             currlevel = level;            
         }
-        document.querySelector('body').appendChild(highScore);
         reset();
     }
 }
