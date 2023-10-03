@@ -1,0 +1,48 @@
+[1mdiff --git a/SimonSayGame.js b/SimonSayGame.js[m
+[1mindex 1a9da3b..dfcdd8f 100644[m
+[1m--- a/SimonSayGame.js[m
+[1m+++ b/SimonSayGame.js[m
+[36m@@ -11,14 +11,16 @@[m [mlet h2 =document.querySelector('h2');[m
+ //sound effect--------------------------[m
+ let endSound = document.querySelector(".endSound");[m
+ let gameOverSound = function () {[m
+[32m+[m[32m    endSound.currentTime = 0;[m
+     endSound.play();[m
+ }[m
+ let btnsSound = document.querySelector(".btnSound")[m
+ let btnSound = function () {[m
+[31m-    btnsSound.play();[m
+[32m+[m[32m    btnsSound.play();[m[41m   [m
+ }[m
+ let sbtnSound = document.querySelector(".sbtnSound")[m
+ let startbtnSound = function () {[m
+[32m+[m[32m    endSound.currentTime = 0;[m
+     sbtnSound.play();[m
+ }[m
+ [m
+[36m@@ -55,7 +57,7 @@[m [mfunction userFlash(btn){[m
+     btn.classList.add("userFlash");[m
+     setTimeout(() => {[m
+         btn.classList.remove("userFlash");[m
+[31m-    }, 200);[m
+[32m+[m[32m    }, 100);[m
+     btnSound();[m
+ }[m
+ [m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 9d91ecb..859e27e 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -8,7 +8,7 @@[m
+ <link rel="stylesheet" href="SimonSayGame.css">[m
+ <body>[m
+     <audio class="endSound" controls src="./sounds/soundEndGame.mp3"></audio>[m
+[31m-    <audio class="btnSound" controls src="./sounds/tabsound.wav"></audio>[m
+[32m+[m[32m    <audio class="btnSound" controls src="./sounds/tabsound.mp3"></audio>[m
+     <audio class="sbtnSound" controls src="./sounds/StartGame.mp3"></audio>[m
+ [m
+     <h1 class="Gname">Siman Say Game</h1> [m
+[1mdiff --git a/sounds/tabsound.wav b/sounds/tabsound.wav[m
+[1mdeleted file mode 100644[m
+[1mindex 80a929f..0000000[m
+Binary files a/sounds/tabsound.wav and /dev/null differ
